@@ -15,6 +15,6 @@ public class ParseApplication extends Application {
         Parse.initialize(new Parse.Configuration.Builder(this)
             .applicationId("abchilders-finstagram") // should correspond to APP_ID env variable
             .clientKey("OurFinstagramIsAShadyAsHellApp") // set explicitly unless clientKey is explicitly configured on Parse server
-            .server("http://abchilders-finstagram.herokuapp.com/parse").build());
+            .server("https://abchilders-finstagram.herokuapp.com/parse").build());
     }
 }

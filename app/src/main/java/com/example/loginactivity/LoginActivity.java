@@ -31,6 +31,12 @@ public class LoginActivity extends AppCompatActivity {
         // connect to activity_login layout
         setContentView(R.layout.activity_login);
 
+        // if user already logged in, can redirect to main activity
+        if (ParseUser.getCurrentUser() != null)
+        {
+            goMainActivity();
+        }
+
         // get views from XML layout
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
