@@ -3,11 +3,15 @@ package com.example.loginactivity;
 import android.app.Application;
 
 import com.parse.Parse;
+import com.parse.ParseObject;
 
 public class ParseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        // Register your parse models
+        ParseObject.registerSubclass(Post.class);
 
         // Set applicationId, and server based on the value in the Heroku settings.
         // clientKey is not needed unless explicitly configured
