@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etUsername;
     private EditText etPassword;
     private Button btnLogin;
+    private Button btnSignup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        btnSignup = findViewById(R.id.btnSignup);
+
         // when login button clicked, get username and password and use those to log in
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +52,15 @@ public class LoginActivity extends AppCompatActivity {
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 loginUser(username, password);
+            }
+        });
+
+        // when signup button clicked, redirect to signup activity
+        btnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "onClick signup button");
+                goSignupActivity();
             }
         });
     }
@@ -74,10 +86,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // use Intent system to redirect to main activity
-    // TODO: LEFT OFF HERE-- NEED TO TEST LOGIN
     private void goMainActivity() {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         finish();
+    }
+
+    private void goSignupActivity() {
+        Intent i = new Intent(this, SignupActivity.class);
+        startActivity(i);
     }
 }
