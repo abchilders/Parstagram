@@ -48,20 +48,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnSignout = findViewById(R.id.btnSignout);
         bottomNavigationView = findViewById(R.id.bottomNavigation);
-
-
-        // redirect to login activity when signing out
-        btnSignout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i(TAG, "Signout button clicked");
-                ParseUser.logOut();
-                ParseUser currentUser = ParseUser.getCurrentUser();
-                goLoginActivity();
-            }
-        });
 
         // set listener for bottom navigation view
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -70,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Fragment fragment;
                 switch (menuItem.getItemId()) {
+                    case R.id.action_logout:
+                        Log.i(TAG, "Signout action item  clicked");
+                        ParseUser.logOut();
+                        ParseUser currentUser = ParseUser.getCurrentUser();
+                        goLoginActivity();
                     case R.id.action_home:
                         fragment = new PostsFragment();
                         break;
