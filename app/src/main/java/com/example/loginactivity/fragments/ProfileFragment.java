@@ -1,3 +1,5 @@
+// TODO: implement swipe-to-refresh on profile view
+
 package com.example.loginactivity.fragments;
 
 import android.util.Log;
@@ -27,11 +29,15 @@ public class ProfileFragment extends PostsFragment {
                     return;
                 }
                 // if e is null, we have a list of posts to show
+                // clear adapter first
+                adapter.clear();
+                // then load new posts into adapter
                 for (Post post : posts) {
                     Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
                 }
                 allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
+                swipeContainer.setRefreshing(false);
             }
         });
     }

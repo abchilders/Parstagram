@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // TODO: keep playing with this to customize app and make it more insta-like
         // set toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
